@@ -8,4 +8,9 @@ module ApplicationHelper
       "#{base_title} | #{@title}"
     end
   end
+  
+  #Return logo
+  def logo
+    image_tag("logo.png", :alt => "Peep Community", :class => "round")
+  end
 end
