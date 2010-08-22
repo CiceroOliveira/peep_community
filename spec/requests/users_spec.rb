@@ -16,6 +16,7 @@ describe "Users" do
         end.should_not change(User, :count)
       end
     end
+    
     describe "success" do
       it "should make a new user" do
         lambda do visit signup_path
@@ -27,13 +28,6 @@ describe "Users" do
           response.should render_template('users/show')
         end.should change(User, :count).by(1)
       end
-  end
-end
-  end
-  
-  describe "GET /users" do
-    it "works! (now write some real specs)" do
-      get users_path
     end
   end
 end
