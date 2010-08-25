@@ -20,25 +20,33 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
-    @title = "Sign up"
+    if signed_in?
+      redirect_to root_url
+    else
+      @user = User.new
+      @title = "Sign up"
+    end
   end
   
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to Peep Community"
-      redirect_to @user
+    if signed_in?
+        redirect_to root_url
     else
-      @title = "Sign up"
-      @user.password = ""
-      render 'new'
+      @user = User.new(params[:user])
+      if @user.save
+        sign_in @user
+        flash[:success] = "Welcome to Peep Community"
+        redirect_to @user
+      else
+        @title = "Sign up"
+        @user.password = ""
+        render 'new'
+      end
     end
   end
   
   def edit
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     @title = "Edit user"
   end
   
