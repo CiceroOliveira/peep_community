@@ -194,30 +194,67 @@ h1.micropost {
   margin-bottom: 0.3em;
 }
 
-table.microposts {
-  margin-top: 1em;
+div.section {
+	clear: both;
+	float: none;
+	padding: 6px 10px;
+	position: relative;
 }
 
-table.microposts tr {
-  height: 70px;
+ol.microposts {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: block;
 }
 
-table.microposts tr td.gravatar {
-  border-top: 1px solid #ccc;
+ol.microposts li {
   vertical-align: top;
+  line-height: 16px;
+  position: relative;
+  padding: 10px 0px 8px;
+  border-bottom: 1px solid #EEE;
+}
+
+ol.microposts li:hover {
+	background-color: #eee;
+}
+
+ol.microposts li span.gravatar {
+  margin: 0px 10px 0px 8px;
+  vertical-align: top;
+  height: 50px;
   width: 50px;
+  left: 0px;
+  position: absolute;
+  display: block;
+  padding: 0px;
+  z-index: 10;
 }
 
-table.microposts tr td.micropost {
-  border-top: 1px solid #ccc;
+ol.microposts li span.micropost {
+  overflow: visible;
+  display: block;
   vertical-align: top;
-  padding-top: 10px;
+  padding-top: 0px;
+  margin-left: 64px;
+  min-height: 48px;
 }
 
-table.microposts tr td.micropost span.timestamp {
+ol.microposts li span.micropost span.timestamp {
   display: block;
   font-size: 85%;
   color: #666;
+}
+
+ol.microposts li span.del {
+  bottom: 8px;
+  float: right;
+  font-size: 85%;
+  overflow: visible;
+  padding-right: 10px;
+  position: absolute;
+  right: 0px;
 }
 
 div.user_info img {
